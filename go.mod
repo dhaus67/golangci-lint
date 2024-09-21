@@ -1,6 +1,6 @@
 module github.com/golangci/golangci-lint
 
-go 1.22.1
+go 1.23.0
 
 require (
 	4d63.com/gocheckcompilerdirectives v1.2.1
@@ -34,6 +34,7 @@ require (
 	github.com/curioswitch/go-reassign v0.2.0
 	github.com/daixiang0/gci v0.13.5
 	github.com/denis-tingaikin/go-header v0.5.0
+	github.com/dhaus67/useq v1.2.2
 	github.com/fatih/color v1.17.0
 	github.com/firefart/nonamedreturns v1.0.5
 	github.com/fzipp/gocyclo v0.6.0

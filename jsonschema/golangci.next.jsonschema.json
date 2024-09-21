@@ -409,6 +409,7 @@
             "unconvert",
             "unparam",
             "unused",
+            "useq",
             "usestdlibvars",
             "varcheck",
             "varnamelen",
@@ -502,7 +503,7 @@
                 "default": "stdout",
                 "anyOf": [
                   {
-                    "enum": [ "stdout", "stderr" ]
+                    "enum": ["stdout", "stderr"]
                   },
                   {
                     "type": "string"
@@ -1277,7 +1278,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "paramsOnly" : {
+                    "paramsOnly": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1287,7 +1288,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "minLength" : {
+                    "minLength": {
                       "type": "number",
                       "default": 15
                     }
@@ -1297,7 +1298,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "skipBalanced" : {
+                    "skipBalanced": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1307,7 +1308,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "sizeThreshold" : {
+                    "sizeThreshold": {
                       "type": "number",
                       "default": 80
                     }
@@ -1317,7 +1318,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "minThreshold" : {
+                    "minThreshold": {
                       "type": "number",
                       "default": 2
                     }
@@ -1327,7 +1328,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "bodyWidth" : {
+                    "bodyWidth": {
                       "type": "number",
                       "default": 5
                     }
@@ -1337,11 +1338,11 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "sizeThreshold" : {
+                    "sizeThreshold": {
                       "type": "number",
                       "default": 512
                     },
-                    "skipTestFuncs" : {
+                    "skipTestFuncs": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1351,11 +1352,11 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "sizeThreshold" : {
+                    "sizeThreshold": {
                       "type": "number",
                       "default": 128
                     },
-                    "skipTestFuncs" : {
+                    "skipTestFuncs": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1365,19 +1366,19 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "debug" : {
+                    "debug": {
                       "type": "string"
                     },
-                    "enable" : {
+                    "enable": {
                       "type": "string"
                     },
-                    "disable" : {
+                    "disable": {
                       "type": "string"
                     },
-                    "failOn" : {
+                    "failOn": {
                       "type": "string"
                     },
-                    "rules" : {
+                    "rules": {
                       "type": "string"
                     }
                   }
@@ -1386,7 +1387,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "maxResults" : {
+                    "maxResults": {
                       "type": "number",
                       "default": 5
                     }
@@ -1396,7 +1397,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "skipArchDependent" : {
+                    "skipArchDependent": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1406,7 +1407,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "skipRecvDeref" : {
+                    "skipRecvDeref": {
                       "type": "boolean",
                       "default": true
                     }
@@ -1416,7 +1417,7 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "checkExported" : {
+                    "checkExported": {
                       "type": "boolean",
                       "default": false
                     }
@@ -2181,9 +2182,25 @@
               "type": "array",
               "description": "List of return types to check.",
               "items": {
-                "enum": ["ptr", "func", "iface", "map", "chan", "uintptr", "unsafeptr"]
+                "enum": [
+                  "ptr",
+                  "func",
+                  "iface",
+                  "map",
+                  "chan",
+                  "uintptr",
+                  "unsafeptr"
+                ]
               },
-              "default": ["ptr", "func", "iface", "map", "chan", "uintptr", "unsafeptr"]
+              "default": [
+                "ptr",
+                "func",
+                "iface",
+                "map",
+                "chan",
+                "uintptr",
+                "unsafeptr"
+              ]
             }
           }
         },
@@ -2961,9 +2978,7 @@
                   "suite-thelper",
                   "useless-assert"
                 ],
-                "default": [
-                  "suite-thelper"
-                ]
+                "default": ["suite-thelper"]
               }
             },
             "bool-compare": {
@@ -3146,6 +3161,20 @@
                   "default": true,
                   "type": "boolean"
                 }
+              }
+            }
+          }
+        },
+        "useq": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "functions": {
+              "type": "array",
+              "description": "List of functions to check for use of %q formatting",
+              "items": {
+                "type": "string",
+                "description": "The function name with package name, e.g. fmt.Sprintf"
               }
             }
           }
@@ -3516,7 +3545,7 @@
               "oneOf": [
                 {
                   "properties": {
-                    "type": {"enum": ["module"] }
+                    "type": { "enum": ["module"] }
                   }
                 },
                 {

@@ -54,8 +54,7 @@ run:
   # Define the Go version limit.
   # Mainly related to generics support since go1.18.
   # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.17
-  go: '1.19'
-
+  go: "1.19"
 
 # output configuration options
 output:
@@ -133,7 +132,6 @@ output:
   # Show statistics per linter.
   # Default: false
   show-stats: true
-
 
 # All available settings of specific linters.
 linters-settings:
@@ -448,13 +446,13 @@ linters-settings:
     # If `custom-order` is `true`, it follows the order of `sections` option.
     # Default: ["standard", "default"]
     sections:
-      - standard                       # Standard section: captures all standard packages.
-      - default                        # Default section: contains all imports that could not be matched to another section type.
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
       - prefix(github.com/org/project) # Custom section: groups all imports with the specified Prefix.
-      - blank                          # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
-      - dot                            # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
-      - alias                          # Alias section: contains all alias imports. This section is not present unless explicitly enabled.
-      - localmodule                    # Local module section: contains all local packages. This section is not present unless explicitly enabled.
+      - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
+      - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
+      - alias # Alias section: contains all alias imports. This section is not present unless explicitly enabled.
+      - localmodule # Local module section: contains all local packages. This section is not present unless explicitly enabled.
 
     # Skip generated files.
     # Default: true
@@ -548,7 +546,7 @@ linters-settings:
     ignore-calls: false
     # Exclude strings matching the given regular expression.
     # Default: ""
-    ignore-strings: 'foo.+'
+    ignore-strings: "foo.+"
 
   gocritic:
     # Disable all checks.
@@ -648,7 +646,7 @@ linters-settings:
         #
         # The option is passed to the ruleguard 'debug-group' argument.
         # Default: ""
-        debug: 'emptyDecl'
+        debug: "emptyDecl"
         # Determines the behavior when an error occurs while parsing ruleguard files.
         # If flag is not set, log error and skip rule files that contain an error.
         # If flag is set, the value must be a comma-separated list of error conditions.
@@ -662,7 +660,7 @@ linters-settings:
         # The special '${configDir}' variable is substituted with the absolute directory containing the golangci config file.
         # Glob patterns such as 'rules-*.go' may be specified.
         # Default: ""
-        rules: '${configDir}/ruleguard/rules-*.go,${configDir}/myrule1.go'
+        rules: "${configDir}/ruleguard/rules-*.go,${configDir}/myrule1.go"
         # Comma-separated list of enabled groups or skip empty to enable everything.
         # Tags can be defined with # character prefix.
         # Default: "<all>"
@@ -727,10 +725,10 @@ linters-settings:
     # https://pkg.go.dev/cmd/gofmt
     # Default: []
     rewrite-rules:
-      - pattern: 'interface{}'
-        replacement: 'any'
-      - pattern: 'a[b:len(a)]'
-        replacement: 'a[b:]'
+      - pattern: "interface{}"
+        replacement: "any"
+      - pattern: "a[b:len(a)]"
+        replacement: "a[b:]"
 
   gofumpt:
     # Module path which contains the source code being formatted.
@@ -838,7 +836,7 @@ linters-settings:
   gosimple:
     # Sxxxx checks in https://staticcheck.io/docs/configuration/options/#checks
     # Default: ["*"]
-    checks: [ "all" ]
+    checks: ["all"]
 
   gosec:
     # To select a subset of rules to run.
@@ -1036,11 +1034,11 @@ linters-settings:
     #
     # Default: []
     escape-hatches:
-      - 'github.com/nicksnyder/go-i18n/v2/i18n.Message'
-      - 'example.com/your/project/i18n/markers.Raw'
-      - 'example.com/your/project/i18n/markers.OK'
-      - 'example.com/your/project/i18n/markers.TODO'
-      - 'command-line-arguments.Simple'
+      - "github.com/nicksnyder/go-i18n/v2/i18n.Message"
+      - "example.com/your/project/i18n/markers.Raw"
+      - "example.com/your/project/i18n/markers.OK"
+      - "example.com/your/project/i18n/markers.TODO"
+      - "command-line-arguments.Simple"
     # Ignore test files.
     #
     # Default: true
@@ -1319,9 +1317,9 @@ linters-settings:
     # For example: https://github.com/timonwong/loggercheck/blob/7395ab86595781e33f7afba27ad7b55e6956ebcd/testdata/custom-rules.txt
     # Default: empty
     rules:
-      - k8s.io/klog/v2.InfoS   # package level exported functions
-      - (github.com/go-logr/logr.Logger).Error  # "Methods"
-      - (*go.uber.org/zap.SugaredLogger).With  # Also "Methods", but with a pointer receiver
+      - k8s.io/klog/v2.InfoS # package level exported functions
+      - (github.com/go-logr/logr.Logger).Error # "Methods"
+      - (*go.uber.org/zap.SugaredLogger).With # Also "Methods", but with a pointer receiver
 
   maintidx:
     # Show functions with maintainability index lower than N.
@@ -1374,9 +1372,9 @@ linters-settings:
     # Values always ignored: "1", "1.0", "0" and "0.0"
     # Default: []
     ignored-numbers:
-      - '0666'
-      - '0755'
-      - '42'
+      - "0666"
+      - "0755"
+      - "42"
     # List of file patterns to exclude from analysis.
     # Values always ignored: `.+_test.go`
     # Default: []
@@ -1436,7 +1434,7 @@ linters-settings:
     allow-unused: true
     # Exclude following linters from requiring an explanation.
     # Default: []
-    allow-no-explanation: [ ]
+    allow-no-explanation: []
     # Enable to require an explanation of nonzero length after each nolint directive.
     # Default: false
     require-explanation: true
@@ -1581,7 +1579,7 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 4 ]
+        arguments: [4]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#atomic
       - name: atomic
         severity: warning
@@ -1592,7 +1590,7 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ "Ω","Σ","σ", "7" ]
+        arguments: ["Ω", "Σ", "σ", "7"]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#bare-return
       - name: bare-return
         severity: warning
@@ -1618,7 +1616,7 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 7 ]
+        arguments: [7]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#comment-spacings
       - name: comment-spacings
         severity: warning
@@ -1632,7 +1630,7 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 15 ]
+        arguments: [15]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#confusing-naming
       - name: confusing-naming
         severity: warning
@@ -1665,7 +1663,7 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 3 ]
+        arguments: [3]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#datarace
       - name: datarace
         severity: warning
@@ -1682,13 +1680,13 @@ linters-settings:
         disabled: false
         exclude: [""]
         arguments:
-          - [ "call-chain", "loop" ]
+          - ["call-chain", "loop"]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#dot-imports
       - name: dot-imports
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ ]
+        arguments: []
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#duplicated-imports
       - name: duplicated-imports
         severity: warning
@@ -1778,13 +1776,13 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 10, 0 ]
+        arguments: [10, 0]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#function-result-limit
       - name: function-result-limit
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 3 ]
+        arguments: [3]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#get-return
       - name: get-return
         severity: warning
@@ -1837,19 +1835,19 @@ linters-settings:
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 80 ]
+        arguments: [80]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#max-control-nesting
       - name: max-control-nesting
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 3 ]
+        arguments: [3]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#max-public-structs
       - name: max-public-structs
         severity: warning
         disabled: false
         exclude: [""]
-        arguments: [ 3 ]
+        arguments: [3]
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#modifies-parameter
       - name: modifies-parameter
         severity: warning
@@ -1911,10 +1909,10 @@ linters-settings:
         disabled: false
         exclude: [""]
         arguments:
-          - - 'core.WriteError[1].Message'
-            - '/^([^A-Z]|$)/'
+          - - "core.WriteError[1].Message"
+            - "/^([^A-Z]|$)/"
             - must not start with a capital letter
-          - - 'fmt.Errorf[0]'
+          - - "fmt.Errorf[0]"
             - '/(^|[^\.!?])$/'
             - must not end in punctuation
           - - panic
@@ -2025,8 +2023,8 @@ linters-settings:
         disabled: false
         exclude: [""]
         arguments:
-          - [ "ID" ] # AllowList
-          - [ "VM" ] # DenyList
+          - ["ID"] # AllowList
+          - ["VM"] # DenyList
           - - upperCaseConst: true # Extra parameter (upperCaseConst|skipPackageNameChecks)
       # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#waitgroup-by-value
       - name: waitgroup-by-value
@@ -2122,22 +2120,67 @@ linters-settings:
   staticcheck:
     # SAxxxx checks in https://staticcheck.io/docs/configuration/options/#checks
     # Default: ["*"]
-    checks: [ "all" ]
+    checks: ["all"]
 
   stylecheck:
     # STxxxx checks in https://staticcheck.io/docs/configuration/options/#checks
     # Default: ["*"]
-    checks: [ "all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022" ]
+    checks:
+      ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
     # https://staticcheck.io/docs/configuration/options/#dot_import_whitelist
     # Default: ["github.com/mmcloughlin/avo/build", "github.com/mmcloughlin/avo/operand", "github.com/mmcloughlin/avo/reg"]
     dot-import-whitelist:
       - fmt
     # https://staticcheck.io/docs/configuration/options/#initialisms
     # Default: ["ACL", "API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS", "ID", "IP", "JSON", "QPS", "RAM", "RPC", "SLA", "SMTP", "SQL", "SSH", "TCP", "TLS", "TTL", "UDP", "UI", "GID", "UID", "UUID", "URI", "URL", "UTF8", "VM", "XML", "XMPP", "XSRF", "XSS", "SIP", "RTP", "AMQP", "DB", "TS"]
-    initialisms: [ "ACL", "API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS", "ID", "IP", "JSON", "QPS", "RAM", "RPC", "SLA", "SMTP", "SQL", "SSH", "TCP", "TLS", "TTL", "UDP", "UI", "GID", "UID", "UUID", "URI", "URL", "UTF8", "VM", "XML", "XMPP", "XSRF", "XSS", "SIP", "RTP", "AMQP", "DB", "TS" ]
+    initialisms:
+      [
+        "ACL",
+        "API",
+        "ASCII",
+        "CPU",
+        "CSS",
+        "DNS",
+        "EOF",
+        "GUID",
+        "HTML",
+        "HTTP",
+        "HTTPS",
+        "ID",
+        "IP",
+        "JSON",
+        "QPS",
+        "RAM",
+        "RPC",
+        "SLA",
+        "SMTP",
+        "SQL",
+        "SSH",
+        "TCP",
+        "TLS",
+        "TTL",
+        "UDP",
+        "UI",
+        "GID",
+        "UID",
+        "UUID",
+        "URI",
+        "URL",
+        "UTF8",
+        "VM",
+        "XML",
+        "XMPP",
+        "XSRF",
+        "XSS",
+        "SIP",
+        "RTP",
+        "AMQP",
+        "DB",
+        "TS",
+      ]
     # https://staticcheck.io/docs/configuration/options/#http_status_code_whitelist
     # Default: ["200", "400", "404", "500"]
-    http-status-code-whitelist: [ "200", "400", "404", "500" ]
+    http-status-code-whitelist: ["200", "400", "404", "500"]
 
   tagalign:
     # Align and sort can be used together or separately.
@@ -2417,6 +2460,23 @@ linters-settings:
     # Default: true
     generated-is-used: false
 
+  useq:
+    # The list of functions with message formatting arguments that should be validated.
+    functions:
+      # The function name needs to be the full qualified name (including potential pointers).
+      # Examples:
+      #- github.com/custom/package.MyPrintf              # exported package level function.
+      #- (github.com/custom/package.MyStruct).MyPrintf   # exported method of a struct.
+      #- (*github.com/custom/package.MyStruct).MyPrintf  # exported method of a struct with a pointer receiver.
+
+      # By default, the following functions are validated:
+      #- fmt.Printf
+      #- fmt.Sprintf
+      #- fmt.Errorf
+      #- fmt.Fprintf
+      #- github.com/pkg/errors.Errorf
+      #- github.com/pkg/errors.Wrapf
+
   varnamelen:
     # The longest distance, in source lines, that is being considered a "small scope".
     # Variables used in at most this many lines will be ignored.
@@ -2550,12 +2610,12 @@ linters-settings:
 
     # A list of call idents that everything can be cuddled with.
     # Defaults: [ "Lock", "RLock" ]
-    allow-cuddle-with-calls: [ "Foo", "Bar" ]
+    allow-cuddle-with-calls: ["Foo", "Bar"]
 
     # AllowCuddleWithRHS is a list of right hand side variables that is allowed
     # to be cuddled with anything.
     # Defaults: [ "Unlock", "RUnlock" ]
-    allow-cuddle-with-rhs: [ "Foo", "Bar" ]
+    allow-cuddle-with-rhs: ["Foo", "Bar"]
 
     # Causes an error when an If statement that checks an error variable doesn't
     # cuddle with the assignment of that variable.
@@ -2566,7 +2626,7 @@ linters-settings:
     # When force-err-cuddling is enabled this is a list of names
     # used for error variables to check for in the conditional.
     # Default: [ "err" ]
-    error-variable-names: [ "foo" ]
+    error-variable-names: ["foo"]
 
     # Causes an error if a short declaration (:=) cuddles with anything other than
     # another short declaration.
@@ -2598,7 +2658,6 @@ linters-settings:
       # Optional.
       settings:
         foo: bar
-
 
 linters:
   # Disable all linters.
@@ -2866,7 +2925,6 @@ linters:
   # Default: false
   fast: true
 
-
 issues:
   # List of regexps of issue texts to exclude.
   #
@@ -3012,7 +3070,6 @@ issues:
   # Fix found issues (if it's supported by the linter).
   # Default: false
   fix: true
-
 
 severity:
   # Set the default severity for issues.
